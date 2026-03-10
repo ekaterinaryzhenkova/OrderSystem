@@ -1,0 +1,61 @@
+# This is a generated file. Not intended for manual editing.
+version: "3.9"
+services:
+  notificationservice:
+    build:
+      context: "C:\\Users\\Екатерина\\Documents\\repos\\order-system"
+      dockerfile: "NotificationService/NotificationService/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net9.0/NotificationService.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "notificationservice:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\Екатерина\\.nuget\\packages:/root/.nuget/packages"
+    - "C:\\Users\\Екатерина\\Documents\\repos\\order-system\\NotificationService\\\
+      NotificationService:/app:rw"
+    - "C:\\Users\\Екатерина\\Documents\\repos\\order-system:/src:rw"
+    working_dir: "/app"
+  orderservice:
+    build:
+      context: "C:\\Users\\Екатерина\\Documents\\repos\\order-system"
+      dockerfile: "OrderService/OrderService/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net9.0/OrderService.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "orderservice:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\Екатерина\\.nuget\\packages:/root/.nuget/packages"
+    - "C:\\Users\\Екатерина\\Documents\\repos\\order-system\\OrderService\\OrderService:/app:rw"
+    - "C:\\Users\\Екатерина\\Documents\\repos\\order-system:/src:rw"
+    working_dir: "/app"
+  storeservice:
+    build:
+      context: "C:\\Users\\Екатерина\\Documents\\repos\\order-system"
+      dockerfile: "StoreService/StoreService/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net9.0/StoreService.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "storeservice:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\Екатерина\\.nuget\\packages:/root/.nuget/packages"
+    - "C:\\Users\\Екатерина\\Documents\\repos\\order-system\\StoreService\\StoreService:/app:rw"
+    - "C:\\Users\\Екатерина\\Documents\\repos\\order-system:/src:rw"
+    working_dir: "/app"
