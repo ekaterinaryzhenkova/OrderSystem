@@ -43,6 +43,14 @@ namespace NotificationService
                         h.Username("guest");
                         h.Password("guest");
                     });
+                    
+                    cfg.UseDelayedRedelivery(r =>
+                    {
+                        r.Intervals(
+                            TimeSpan.FromSeconds(10),
+                            TimeSpan.FromSeconds(30),
+                            TimeSpan.FromMinutes(1));
+                    });
 
                     cfg.ConfigureEndpoints(context);
                 });
