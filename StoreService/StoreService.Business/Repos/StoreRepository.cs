@@ -6,10 +6,10 @@ namespace StoreService.Business.Repos
 {
     public class StoreRepository(StoreServiceContext context) : IStoreRepository
     {
-        public async Task<DbProduct?> GetAsync(Guid productId)
+        public async Task<DbProduct?> GetAsync(string productName)
         {
             return await context.Products
-                .FirstOrDefaultAsync(p => p.Id == productId);
+                .FirstOrDefaultAsync(p => p.Name.ToLower() == productName.ToLower());
         }
 
         public async Task<int> UpdateAsync(DbProduct product, int quantity)

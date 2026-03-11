@@ -20,7 +20,7 @@ namespace OrderService.Broker.Consumers
                 ? Status.Confirmed
                 : Status.Rejected;
 
-            await repository.UpdateAsync(response.OrderId, status);
+            await repository.UpdateAsync(response.OrderId, status, response.ProductId);
             await publisher.SendNotificationAsync(response.OrderId, response.Message, orderEmail);
         }
     }

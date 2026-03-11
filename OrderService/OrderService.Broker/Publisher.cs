@@ -6,12 +6,12 @@ namespace OrderService.Broker
 {
     public class Publisher(IPublishEndpoint publishEndpoint) : IPublisher
     {
-        public Task SendOrderInfoAsync(Guid orderId, Guid productId, int count)
+        public Task SendOrderInfoAsync(Guid orderId, string productName, int count)
         {
             var request = new OrderCreated
             {
                 OrderId = orderId,
-                ProductId = productId,
+                ProductName = productName,
                 Count = count
             };
 

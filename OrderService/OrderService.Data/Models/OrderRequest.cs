@@ -4,7 +4,7 @@ namespace OrderService.Application.Models
 {
     public record OrderRequest
     {
-        public Guid ProductId { get; set; }
+        public string ProductName { get; set; }
         
         public int Count { get; set; }
         

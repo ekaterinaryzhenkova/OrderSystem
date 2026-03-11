@@ -10,6 +10,9 @@ namespace OrderService.Application.DbModels
         public Guid Id { get; set; }
         
         [Required]
+        [MaxLength(100)]
+        public string ProductName { get; set; }
+        
         public Guid ProductId { get; set; }
         
         [Required]

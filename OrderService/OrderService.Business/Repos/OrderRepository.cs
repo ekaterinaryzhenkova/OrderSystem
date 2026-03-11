@@ -15,11 +15,13 @@ namespace OrderService.Business.Repos
             return order;
         }
         
-        public async Task<int> UpdateAsync(Guid orderId, Status status)
+        public async Task<int> UpdateAsync(Guid orderId, Status status, Guid productId)
         {
             DbOrder order = await context.Orders.FirstAsync(o => o.Id == orderId);
 
             order.Status = (int)status;
+            order.ProductId = productId;
+            
             return await context.SaveChangesAsync();
         }
 

@@ -15,14 +15,14 @@ namespace OrderService.Business.Commands
             var order = new DbOrder()
             {
                 Id = Guid.NewGuid(),
-                ProductId = request.ProductId,
+                ProductName = request.ProductName,
                 Count = request.Count,
                 Email = request.Email,
                 Status = (int)Status.Created
             };
 
             await repository.CreateAsync(order);
-            await publisher.SendOrderInfoAsync(order.Id, order.ProductId, order.Count);
+            await publisher.SendOrderInfoAsync(order.Id, order.ProductName, order.Count);
 
             return true;
         }
