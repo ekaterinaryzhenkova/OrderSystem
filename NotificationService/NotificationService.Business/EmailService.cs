@@ -29,29 +29,6 @@ namespace NotificationService.Business
             message.To.Add(new MailAddress(to));
             
             await client.SendMailAsync(message);
-            
-            /*var email = new MimeMessage();
-
-            email.From.Add(MailboxAddress.Parse(optionsValue.Sender));
-            email.To.Add(MailboxAddress.Parse(to));
-            email.Subject = optionsValue.Subject;
-
-            email.Body = new TextPart(TextFormat.Text)
-            {
-                Text = body
-            };
-
-            using var smtp = new SmtpClient();
-            
-            await smtp.ConnectAsync(optionsValue.Host, optionsValue.Port, SecureSocketOptions.Auto);
-
-            await smtp.AuthenticateAsync(
-                optionsValue.Sender,
-                optionsValue.AppPassword);
-
-            await smtp.SendAsync(email);
-
-            await smtp.DisconnectAsync(true);*/
         }
     }
 }
