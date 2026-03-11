@@ -1,5 +1,4 @@
 using Microsoft.Extensions.Options;
-
 using NotificationService.Application;
 using System.Net;
 using System.Net.Mail;
